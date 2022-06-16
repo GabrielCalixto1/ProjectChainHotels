@@ -1,32 +1,19 @@
 namespace ProjectChainHotels.Lib.Models
 {
-    public class HotelGuest
+    public class HotelGuest : ModelBase
     {
-        private string Id { get; set; }
         private string Name { get; set; }
         private string Cpf { get; set; }
         private string Tellphone { get; set; }
+        private string Email { get; set; }
         private DateTime BirthDate { get; set; }
-        private DateTime RegistrationDate { get; set; }
-        private DateTime LastUpdateDate { get; set; }
-         public HotelGuest(string id, string name, string cpf, string tellphone, DateTime birthDate, DateTime registrationDate, DateTime lastUpdateDate)
+
+        public HotelGuest(string id, string name, string cpf, string tellphone, string email, DateTime birthDate, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
-            SetId(id);
             SetName(name);
             SetCpf(cpf);
             SetTellphone(tellphone);
             SetBirthDate(birthDate);
-            SetRegistrationDate(registrationDate);
-            SetLastUpdateDate(lastUpdateDate);
-        }
-
-        public void SetId(string id)
-        {
-            Id = id;
-        }
-        public string GetId()
-        {
-            return Id;
         }
         public void SetName(string name)
         {
@@ -46,11 +33,25 @@ namespace ProjectChainHotels.Lib.Models
         }
         public void SetTellphone(string tellphone)
         {
-            Tellphone = tellphone;
+            if (TellphoneMustHaveUpToFourteenCharacters(tellphone))
+            {
+                Tellphone = tellphone;
+            }
         }
         public string GetTellphone()
         {
             return Tellphone;
+        }
+        public void SetEmail(string email)
+        {
+            if (EmailMustContainAtSign(email))
+            {
+                Email = email;
+            }
+        }
+        public string GetEmail()
+        {
+            return Email;
         }
         public void SetBirthDate(DateTime birthDate)
         {
@@ -60,21 +61,13 @@ namespace ProjectChainHotels.Lib.Models
         {
             return BirthDate;
         }
-        public void SetRegistrationDate(DateTime registrationDate)
+        public bool CpfMustHaveOnlyNumbers(string cpf)
         {
-            RegistrationDate = registrationDate;
-        }
-        public DateTime GetRegistrationDate()
-        {
-            return RegistrationDate;
-        }
-        public void SetLastUpdateDate(DateTime lastUpdateDate)
-        {
-            LastUpdateDate = lastUpdateDate;
-        }
-        public DateTime GetLastUpdateDate()
-        {
-            return LastUpdateDate;
+            {
+                if (cpf.Where(x => char.IsLetter(x)).Count() > 0)
+                    return false;
+            }
+            return true;
         }
     }
 }

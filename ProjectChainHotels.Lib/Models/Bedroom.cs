@@ -1,33 +1,20 @@
 namespace ProjectChainHotels.Lib.Models
 {
-    public class Bedroom
+    public class Bedroom : ModelBase
     {
-        private string Id;
         private string IdHotel;
         private string IdBedroomDescription;
         private string Number;
         private string FloorOfBedroom;
-        private DateTime RegistrationDate;
-        private DateTime LastUptdateDate;
 
-        public Bedroom(string id, string idHotel, string idBedroomDescription, string number, string floorOfBedroom, DateTime registrationDate, DateTime lastUptdateDate)
+        public Bedroom(string id, string idHotel, string idBedroomDescription, string number, string floorOfBedroom, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
-            SetId(id);
             SetIdHotel(idHotel);
             SetIdBedroomDescription(idBedroomDescription);
             SetNumber(number);
             SetFloorOfBedroom(floorOfBedroom);
-            SetRegistrationDate(registrationDate);
-            SetLastUptdateDate(lastUptdateDate);
         }
-        public void SetId(string id)
-        {
-            id = id;
-        }
-        public string GetId()
-        {
-            return Id;
-        }
+
         public void SetIdHotel(string idHotel)
         {
             IdHotel = idHotel;
@@ -36,9 +23,9 @@ namespace ProjectChainHotels.Lib.Models
         {
             return IdHotel;
         }
-        public void SetIdBedroomDescription(string IdBedroomDescription)
+        public void SetIdBedroomDescription(string idBedroomDescription)
         {
-            IdBedroomDescription = IdBedroomDescription;
+            IdBedroomDescription = idBedroomDescription;
         }
         public string GetIdBedroomDescription()
         {
@@ -52,30 +39,13 @@ namespace ProjectChainHotels.Lib.Models
         {
             return Number;
         }
-        public void SetFloorOfBedroom(string FloorOfBedroom)
+        public void SetFloorOfBedroom(string floorOfBedroom)
         {
-            FloorOfBedroom = FloorOfBedroom;
+            FloorOfBedroom = floorOfBedroom;
         }
         public string GetFloorOfBedroom()
         {
             return FloorOfBedroom;
-        }
-        public void SetRegistrationDate(DateTime restrationDate)
-        {
-            RegistrationDate = restrationDate;
-        }
-        public DateTime GetRegistrationDate()
-        {
-            return RegistrationDate;
-        }
-
-        public void SetLastUptdateDate(DateTime lastUpdateDate)
-        {
-            LastUptdateDate = lastUpdateDate;
-        }
-        public DateTime GetLastUptdateDate()
-        {
-            return LastUptdateDate;
         }
 
     }

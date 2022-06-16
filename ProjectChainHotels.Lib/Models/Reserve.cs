@@ -1,34 +1,20 @@
 namespace ProjectChainHotels.Lib.Models
 {
-    public class Reserve
+    public class Reserve : ModelBase
     {
-        private string Id { get; set; }
         private string IdResponsible { get; set; }
         private string IdBedroom { get; set; }
-        private string EntryDate { get; set; }
-        private string DepartureDate { get; set; }
-        private DateTime RegistrationDate { get; set; }
-        private DateTime LastUpdateDate { get; set; }
+        private DateTime EntryDate { get; set; }
+        private DateTime DepartureDate { get; set; }
 
-        public Reserve(string id, string idResponsible, string idBedroom, string entryDate, string departureDate, DateTime registrationDate, DateTime lastUpdateDate)
+        public Reserve(string id, string idResponsible, string idBedroom, DateTime entryDate, DateTime departureDate, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
-            SetId(id);
             SetIdResponsible(idResponsible);
             SetIdBedroom(idBedroom);
             SetEntryDate(entryDate);
             SetDepartureDate(departureDate);
-            SetRegistrationDate(registrationDate);
-            SetLastUpdateDate(lastUpdateDate);
         }
 
-        public void SetId(string id)
-        {
-            Id = id;
-        }
-        public string GetId()
-        {
-            return Id;
-        }
         public void SetIdResponsible(string idResponsible)
         {
             IdResponsible = idResponsible;
@@ -45,37 +31,33 @@ namespace ProjectChainHotels.Lib.Models
         {
             return IdBedroom;
         }
-        public void SetEntryDate(string entryDate)
+        public void SetEntryDate(DateTime entryDate)
         {
             EntryDate = entryDate;
         }
-        public string GetEntryDate()
+        public DateTime GetEntryDate()
         {
             return EntryDate;
         }
-        public void SetDepartureDate(string departureDate)
+        public void SetDepartureDate(DateTime departureDate)
         {
-            DepartureDate = departureDate;
+            if (DepartureDateIsGreaterThanEntryDate(departureDate))
+            {
+                DepartureDate = departureDate;
+            }
         }
-        public string GetDepartureDate()
+        public DateTime GetDepartureDate()
         {
             return DepartureDate;
         }
-        public void SetRegistrationDate(DateTime registrationDate)
+        //Must be
+        public bool DepartureDateIsGreaterThanEntryDate(DateTime departureDate)
         {
-            RegistrationDate = registrationDate;
-        }
-        public DateTime GetRegistrationDate()
-        {
-            return RegistrationDate;
-        }
-        public void SetLastUpdateDate(DateTime lastUpdateDate)
-        {
-            LastUpdateDate = lastUpdateDate;
-        }
-        public DateTime GetLastUpdateDate()
-        {
-            return LastUpdateDate;
+            if (GetEntryDate() < departureDate)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -1,38 +1,25 @@
 namespace ProjectChainHotels.Lib.Models
 {
-    public class BedroomDescription
+    public class BedroomDescription : ModelBase
     {
-        private string Id { get; set; }
+
         private string Name { get; set; }
         private string Review { get; set; }
         private string MaximumCapacity { get; set; }
         private string SingleBedQuantity { get; set; }
         private string DoubleBedQuantity { get; set; }
         private double Price { get; set; }
-        private DateTime RegistrationDate { get; set; }
-        private DateTime LastUpdateDate { get; set; }
 
-        public BedroomDescription(string id, string name, string review, string maximumCapacity, string singleBedQuantity, string doubleBedQuantity, double price, DateTime registrationDate, DateTime lastUpdateDate)
+        public BedroomDescription(string id, string name, string review, string maximumCapacity, string singleBedQuantity, string doubleBedQuantity, double price, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
-            SetId(id);
             SetName(name);
             SetReview(review);
             SetMaximumCapacity(maximumCapacity);
             SetSingleBedQuantity(singleBedQuantity);
             SetDoubleBedQuantity(doubleBedQuantity);
             SetPrice(price);
-            SetRegistrationDate(registrationDate);
-            SetLastUpdateDate(lastUpdateDate);
         }
 
-        public string GetId()
-        {
-            return Id;
-        }
-        public void SetId(string id)
-        {
-            Id = id;
-        }
         public void SetName(string name)
         {
             Name = name;
@@ -81,21 +68,6 @@ namespace ProjectChainHotels.Lib.Models
         {
             return Price;
         }
-        public void SetRegistrationDate(DateTime registrationDate)
-        {
-            RegistrationDate = registrationDate;
-        }
-        public DateTime GetRegistrationDate()
-        {
-            return RegistrationDate;
-        }
-        public void SetLastUpdateDate(DateTime lastUpdateDate)
-        {
-            LastUpdateDate = lastUpdateDate;
-        }
-        public DateTime GetLastUpdateDate()
-        {
-            return LastUpdateDate;
-        }
+
     }
 }

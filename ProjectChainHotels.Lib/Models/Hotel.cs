@@ -1,8 +1,7 @@
 namespace ProjectChainHotels.Lib.Models
 {
-    public class Hotel
+    public class Hotel : ModelBase
     {
-        private string Id { get; set; }
         private string Name { get; set; }
         private string Address { get; set; }
         private string ZipCode { get; set; }
@@ -11,11 +10,8 @@ namespace ProjectChainHotels.Lib.Models
         private string Email { get; set; }
         private DateTime CheckInTime { get; set; }
         private DateTime CheckOutTime { get; set; }
-        private DateTime RegistrationDate { get; set; }
-        private DateTime LastUpdateDate { get; set; }
-        public Hotel(string id, string name, string address, string zipCode, string review, string tellphone, string email, DateTime checkInTime, DateTime checkOutTime, DateTime registrationDate, DateTime lastUpdateDate)
+        public Hotel(string id, string name, string address, string zipCode, string review, string tellphone, string email, DateTime checkInTime, DateTime checkOutTime, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
-            SetId(id);
             SetName(name);
             SetAddress(address);
             SetZipCode(zipCode);
@@ -24,18 +20,8 @@ namespace ProjectChainHotels.Lib.Models
             SetEmail(email);
             SetCheckInTime(checkInTime);
             SetCheckOutTime(checkOutTime);
-            SetRegistrationDate(registrationDate);
-            SetLastUpdateDate(lastUpdateDate);
         }
 
-        public void SetId(string id)
-        {
-            Id = id;
-        }
-        public string GetId()
-        {
-            return Id;
-        }
         public void SetName(string name)
         {
             Name = name;
@@ -70,7 +56,10 @@ namespace ProjectChainHotels.Lib.Models
         }
         public void SetTellphone(string tellphone)
         {
-            Tellphone = tellphone;
+            if (TellphoneMustHaveUpToFourteenCharacters(tellphone))
+            {
+                Tellphone = tellphone;
+            }
         }
         public string GetTellphone()
         {
@@ -78,7 +67,10 @@ namespace ProjectChainHotels.Lib.Models
         }
         public void SetEmail(string email)
         {
-            Email = email;
+            if (EmailMustContainAtSign(email))
+            {
+                Email = email;
+            }
         }
         public string GetEmail()
         {
@@ -100,23 +92,6 @@ namespace ProjectChainHotels.Lib.Models
         {
             return CheckOutTime;
         }
-        public void SetRegistrationDate(DateTime registrationDate)
-        {
-            RegistrationDate = registrationDate;
-        }
-        public DateTime GetRegistrationDate()
-        {
-            return RegistrationDate;
-        }
-        public void SetLastUpdateDate(DateTime lastUpdateDate)
-        {
-            LastUpdateDate = lastUpdateDate;
-        }
-        public DateTime GetLastUpdateDate()
-        {
-            return LastUpdateDate;
-        }
-
 
     }
 }
