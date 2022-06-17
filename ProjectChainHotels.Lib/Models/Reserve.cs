@@ -60,13 +60,6 @@ namespace ProjectChainHotels.Lib.Models
             }
             return false;
         }
-        public bool HotelGuestMustBeLessThanMaximumCapacity()
-        {
-            if(IdResponsible > BedroomDescription.GetMaximumCapacity)
-            {
-                return true;
-            }
-            return false;
-        }
+
     }
 }
