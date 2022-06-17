@@ -14,6 +14,7 @@ namespace ProjectChainHotels.Lib.Models
         {
             SetName(name);
             SetCpf(cpf);
+            SetEmail(email);
             SetTellphone(tellphone);
             SetBirthDate(birthDate);
         }
@@ -27,6 +28,7 @@ namespace ProjectChainHotels.Lib.Models
         }
         public void SetCpf(string cpf)
         {
+            CpfMustHaveOnlyNumbers(cpf);
             Cpf = cpf;
         }
         public string GetCpf()

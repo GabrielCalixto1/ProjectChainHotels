@@ -1,3 +1,5 @@
+using ProjectChainHotels.Lib.Exceptions;
+
 namespace ProjectChainHotels.Lib.Models
 {
     public class Reserve : ModelBase
@@ -42,30 +44,20 @@ namespace ProjectChainHotels.Lib.Models
         }
         public void SetDepartureDate(DateTime departureDate)
         {
-            try
-            {
-                if (DepartureDateIsGreaterThanEntryDate(departureDate))
-                {
-                    DepartureDate = departureDate;
-                }
-            }
-              catch (Exception)
-            {
-                Console.WriteLine("Departure Date invalid!!");
-            }
+            DepartureDateIsGreaterThanEntryDate(departureDate);
+            DepartureDate = departureDate;
         }
         public DateTime GetDepartureDate()
         {
             return DepartureDate;
         }
-        //Must be
         public bool DepartureDateIsGreaterThanEntryDate(DateTime departureDate)
         {
-            if (GetEntryDate() < departureDate)
+            if (GetEntryDate() <= departureDate)
             {
                 return true;
             }
-            return false;
+            throw new ValidationErrorException("Departure date must be greater than entry date!!");
         }
 
     }
