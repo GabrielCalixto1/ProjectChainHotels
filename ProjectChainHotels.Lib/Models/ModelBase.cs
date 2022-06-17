@@ -7,9 +7,9 @@ namespace ProjectChainHotels.Lib.Models
         private DateTime LastUptdateDate;
         public ModelBase(string id, DateTime registrationDate, DateTime lastUptdateDate)
         {
-            Id = id;
-            RegistrationDate = registrationDate;
-            LastUptdateDate = lastUptdateDate;
+            SetId(id);
+            SetRegistrationDate(registrationDate);
+            SetLastUptdateDate(lastUptdateDate);
         }
         public void SetId(string id)
         {

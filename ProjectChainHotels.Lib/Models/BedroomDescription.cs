@@ -5,16 +5,16 @@ namespace ProjectChainHotels.Lib.Models
 
         private string Name { get; set; }
         private string Review { get; set; }
-        private string MaximumCapacity { get; set; }
-        private string SingleBedQuantity { get; set; }
-        private string DoubleBedQuantity { get; set; }
+        private int MaximumCapacity { get; set; }
+        private int SingleBedQuantity { get; set; }
+        private int DoubleBedQuantity { get; set; }
         private double Price { get; set; }
 
-        public BedroomDescription(string id, string name, string review, string maximumCapacity, string singleBedQuantity, string doubleBedQuantity, double price, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
+        public BedroomDescription(string id, string name, string review, int maximumCapacity, int singleBedQuantity, int doubleBedQuantity, double price, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
             SetName(name);
             SetReview(review);
-            SetMaximumCapacity(maximumCapacity);
+            SetMaximumCapacity();
             SetSingleBedQuantity(singleBedQuantity);
             SetDoubleBedQuantity(doubleBedQuantity);
             SetPrice(price);
@@ -36,27 +36,27 @@ namespace ProjectChainHotels.Lib.Models
         {
             return Review;
         }
-        public void SetMaximumCapacity(string maximumCapacity)
+        public void SetMaximumCapacity()
         {
-            MaximumCapacity = maximumCapacity;
+            MaximumCapacity = MaximumCapacityIsTheSumOfSpaceInTheBed();
         }
-        public string GetMaximumCapacity()
+        public int GetMaximumCapacity()
         {
             return MaximumCapacity;
         }
-        public void SetSingleBedQuantity(string singleBedQuantity)
+        public void SetSingleBedQuantity(int singleBedQuantity)
         {
             SingleBedQuantity = singleBedQuantity;
         }
-        public string GetSingleBedQuantity()
+        public int GetSingleBedQuantity()
         {
             return SingleBedQuantity;
         }
-        public void SetDoubleBedQuantity(string doubleBedQuantity)
+        public void SetDoubleBedQuantity(int doubleBedQuantity)
         {
             DoubleBedQuantity = doubleBedQuantity;
         }
-        public string GetDoubleBedQuantity()
+        public int GetDoubleBedQuantity()
         {
             return DoubleBedQuantity;
         }
@@ -67,6 +67,10 @@ namespace ProjectChainHotels.Lib.Models
         public double GetPrice()
         {
             return Price;
+        }
+        public int MaximumCapacityIsTheSumOfSpaceInTheBed()
+        {
+            return GetSingleBedQuantity() + GetDoubleBedQuantity();
         }
 
     }

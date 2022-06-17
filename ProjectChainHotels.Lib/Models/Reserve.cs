@@ -6,6 +6,7 @@ namespace ProjectChainHotels.Lib.Models
         private string IdBedroom { get; set; }
         private DateTime EntryDate { get; set; }
         private DateTime DepartureDate { get; set; }
+        private BedroomDescription BedroomDescription {get; set;}
 
         public Reserve(string id, string idResponsible, string idBedroom, DateTime entryDate, DateTime departureDate, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
@@ -54,6 +55,14 @@ namespace ProjectChainHotels.Lib.Models
         public bool DepartureDateIsGreaterThanEntryDate(DateTime departureDate)
         {
             if (GetEntryDate() < departureDate)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool HotelGuestMustBeLessThanMaximumCapacity()
+        {
+            if(IdResponsible > BedroomDescription.GetMaximumCapacity)
             {
                 return true;
             }
