@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ProjectChainHotels.Lib.Models
 {
     public class HotelGuest : ModelBase
@@ -63,7 +65,7 @@ namespace ProjectChainHotels.Lib.Models
             {
                 return false;
             }
-            return true;
+            throw new ValidationException("Cpf must have only numbers!!");
         }
     }
 }

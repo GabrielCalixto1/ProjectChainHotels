@@ -59,7 +59,7 @@ namespace ProjectChainHotels.Lib.Models
         public bool UpdateCantLessThanRegistrationDate(DateTime lastUpdateDate)
         {
          
-            if (GetRegistrationDate() < lastUpdateDate)
+            if (GetRegistrationDate() <= lastUpdateDate)
             {
                 return true;
             }
