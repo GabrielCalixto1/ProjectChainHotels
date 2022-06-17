@@ -5,8 +5,6 @@ namespace ProjectChainHotels.Lib.Models
         private string Id { get; set; }
         private string IdHotel { get; set; }
         private string IdReserve { get; set; }
-        private DateTime RegistrationDate { get; set; }
-        private DateTime LastUpdateDate { get; set; }
 
         public ServiceXHotel(string id, string idHotel, string idReserve, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
@@ -39,13 +37,6 @@ namespace ProjectChainHotels.Lib.Models
         {
             return IdReserve;
         }
-        public void SetRegistrationDate(DateTime registrationDate)
-        {
-            RegistrationDate = registrationDate;
-        }
-        public DateTime GetRegistrationDate()
-        {
-            return RegistrationDate;
-        }
+
     }
 }

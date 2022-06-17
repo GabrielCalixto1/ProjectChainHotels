@@ -6,7 +6,7 @@ namespace ProjectChainHotels.Lib.Models
         private string IdBedroom { get; set; }
         private DateTime EntryDate { get; set; }
         private DateTime DepartureDate { get; set; }
-        private BedroomDescription BedroomDescription {get; set;}
+        private BedroomDescription BedroomDescription { get; set; }
 
         public Reserve(string id, string idResponsible, string idBedroom, DateTime entryDate, DateTime departureDate, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
@@ -42,9 +42,16 @@ namespace ProjectChainHotels.Lib.Models
         }
         public void SetDepartureDate(DateTime departureDate)
         {
-            if (DepartureDateIsGreaterThanEntryDate(departureDate))
+            try
             {
-                DepartureDate = departureDate;
+                if (DepartureDateIsGreaterThanEntryDate(departureDate))
+                {
+                    DepartureDate = departureDate;
+                }
+            }
+              catch (Exception)
+            {
+                Console.WriteLine("Departure Date invalid!!");
             }
         }
         public DateTime GetDepartureDate()

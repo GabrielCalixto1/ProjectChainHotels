@@ -56,10 +56,8 @@ namespace ProjectChainHotels.Lib.Models
         }
         public void SetTellphone(string tellphone)
         {
-            if (TellphoneMustHaveUpToFourteenCharacters(tellphone))
-            {
-                Tellphone = tellphone;
-            }
+            TellphoneMustHaveUpToFourteenCharacters(tellphone);
+            Tellphone = tellphone;
         }
         public string GetTellphone()
         {
@@ -67,10 +65,8 @@ namespace ProjectChainHotels.Lib.Models
         }
         public void SetEmail(string email)
         {
-            if (EmailMustContainAtSign(email))
-            {
-                Email = email;
-            }
+            EmailMustContainAtSign(email);
+            Email = email;
         }
         public string GetEmail()
         {

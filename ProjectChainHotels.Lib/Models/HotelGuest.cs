@@ -31,23 +31,19 @@ namespace ProjectChainHotels.Lib.Models
         {
             return Cpf;
         }
-        public void SetTellphone(string tellphone)
+         public void SetTellphone(string tellphone)
         {
-            if (TellphoneMustHaveUpToFourteenCharacters(tellphone))
-            {
-                Tellphone = tellphone;
-            }
+            TellphoneMustHaveUpToFourteenCharacters(tellphone);
+            Tellphone = tellphone;
         }
         public string GetTellphone()
         {
             return Tellphone;
         }
-        public void SetEmail(string email)
+       public void SetEmail(string email)
         {
-            if (EmailMustContainAtSign(email))
-            {
-                Email = email;
-            }
+            EmailMustContainAtSign(email);
+            Email = email;
         }
         public string GetEmail()
         {
@@ -63,9 +59,9 @@ namespace ProjectChainHotels.Lib.Models
         }
         public bool CpfMustHaveOnlyNumbers(string cpf)
         {
+            if (cpf.Where(x => char.IsLetter(x)).Count() > 0)
             {
-                if (cpf.Where(x => char.IsLetter(x)).Count() > 0)
-                    return false;
+                return false;
             }
             return true;
         }

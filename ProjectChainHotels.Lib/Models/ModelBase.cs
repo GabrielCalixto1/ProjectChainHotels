@@ -1,3 +1,5 @@
+using ProjectChainHotels.Lib.Exceptions;
+
 namespace ProjectChainHotels.Lib.Models
 {
     public class ModelBase
@@ -38,27 +40,30 @@ namespace ProjectChainHotels.Lib.Models
         }
         public bool EmailMustContainAtSign(string email)
         {
+ 
             if (email.Contains('@'))
             {
                 return true;
             }
-            return false;
+            throw new ValidationErrorException("Email must cotains at sign");
         }
         public bool TellphoneMustHaveUpToFourteenCharacters(string tellphone)
         {
+
             if (tellphone.Length <= 14)
             {
                 return true;
             }
-            return false;
+            throw new ValidationErrorException("Tellphone must have up to fourteen characters");
         }
-        public bool RegistrationDateIsGreaterThanUpdateDate(DateTime departureDate)
+        public bool UpdateCantLessThanRegistrationDate(DateTime lastUpdateDate)
         {
-            if (GetRegistrationDate() < departureDate)
+         
+            if (GetRegistrationDate() < lastUpdateDate)
             {
                 return true;
             }
-            return false;
+            throw new ValidationErrorException("Update date cant less than registration date");
         }
     }
 }
