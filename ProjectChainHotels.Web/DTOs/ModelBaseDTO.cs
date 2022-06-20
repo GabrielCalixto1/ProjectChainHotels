@@ -1,11 +1,11 @@
 namespace ProjectChainHotels.Web.DTOs
 {
-    public class ModelBase
+    public class ModelBaseDTO
     {
         private string Id { get; set; }
         private DateTime RegistrationDate;
         private DateTime LastUptdateDate;
-        public ModelBase(string id, DateTime registrationDate, DateTime lastUptdateDate)
+        public ModelBaseDTO(string id, DateTime registrationDate, DateTime lastUptdateDate)
         {
             Id = id;
             RegistrationDate = registrationDate;

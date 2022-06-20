@@ -1,6 +1,6 @@
 namespace ProjectChainHotels.Web.DTOs
 {
-    public class Hotel : ModelBase
+    public class HotelDTO : ModelBaseDTO
     {
         private string Name { get; set; }
         private string Address { get; set; }
@@ -10,7 +10,7 @@ namespace ProjectChainHotels.Web.DTOs
         private string Email { get; set; }
         private DateTime CheckInTime { get; set; }
         private DateTime CheckOutTime { get; set; }
-        public Hotel(string id, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
+        public HotelDTO(string id, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
  
         }

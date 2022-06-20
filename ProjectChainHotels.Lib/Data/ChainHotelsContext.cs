@@ -1,6 +1,6 @@
 namespace ProjectChainHotels.Lib.Data
 {
-    public class ChainHotelContext
+    public class ChainHotelsContext
     {
         
     }

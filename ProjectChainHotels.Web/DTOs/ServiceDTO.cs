@@ -1,10 +1,10 @@
 namespace ProjectChainHotels.Web.DTOs
 {
-    public class Service : ModelBase
+    public class ServiceDTO : ModelBaseDTO
     {
         string Name {get; set;}
 
-        public Service(string id, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
+        public ServiceDTO(string id, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
 
         }

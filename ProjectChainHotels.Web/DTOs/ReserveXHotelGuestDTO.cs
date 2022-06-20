@@ -1,11 +1,11 @@
 namespace ProjectChainHotels.Web.DTOs
 {
-    public class ReserveXHotelGuest : ModelBase
+    public class ReserveXHotelGuestDTO : ModelBaseDTO
     {
         private string IdReserve { get; set; }
         private string IdHotelGuest { get; set; }
 
-        public ReserveXHotelGuest(string id, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
+        public ReserveXHotelGuestDTO(string id, DateTime registrationDate, DateTime lastUpdateDate) : base(id, registrationDate, lastUpdateDate)
         {
     
         }

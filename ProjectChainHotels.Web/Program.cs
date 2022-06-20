@@ -4,8 +4,8 @@ using ProjectChainHotels.Lib.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ChainHotelContext>(
-        conn => conn.UseNpgsql(builder.Configuration.GetConnectionString("ProjectChainHotel"))
+builder.Services.AddDbContext<ChainHotelsContext>(
+        conn => conn.UseNpgsql(builder.Configuration.GetConnectionString("ProjectChainHotels"))
         .UseSnakeCaseNamingConvention()
     );
 
