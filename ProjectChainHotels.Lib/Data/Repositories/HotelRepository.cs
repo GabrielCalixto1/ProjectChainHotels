@@ -1,4 +1,4 @@
-namespace ProjectChainHotels.Lib.Date.Repositories
+namespace ProjectChainHotels.Lib.Data.Repositories
 {
     public class HotelRepository
     {
