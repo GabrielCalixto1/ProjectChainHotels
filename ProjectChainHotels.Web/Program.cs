@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectChainHotels.Lib.Data;
+using ProjectChainHotels.Lib.Data.Repositories;
+using ProjectChainHotels.Lib.Data.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,13 +11,14 @@ builder.Services.AddDbContext<ChainHotelsContext>(
         .UseSnakeCaseNamingConvention()
     );
 
-/*builder.Services.AddScoped<>();
-builder.Services.AddScoped<>();
-builder.Services.AddScoped<>();
-builder.Services.AddScoped<>();
-builder.Services.AddScoped<>();
-builder.Services.AddScoped<>();
-builder.Services.AddScoped<>();*/
+builder.Services.AddScoped<IHotelRepository, HotelRepository>();
+builder.Services.AddScoped<IHotelGuestRepository, HotelGuestRepository>();
+builder.Services.AddScoped<IBedroomRepository, BedroomRepository>();
+builder.Services.AddScoped<IBedroomDescriptionRepository, BedroomDescriptionRepository>();
+builder.Services.AddScoped<IReserveRepository, ReserveRepository>();
+builder.Services.AddScoped<IReserveXHotelGuestRepository, ReserveXHotelGuestRepository>();
+builder.Services.AddScoped<IServiceXHotelRepository, ServiceRepository>();
+builder.Services.AddScoped<IServiceXHotelRepository, ServiceXHotelRepository>();
 
 builder.Services.AddControllers()
                 .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);

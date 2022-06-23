@@ -1,6 +1,6 @@
 namespace ProjectChainHotels.Lib.Data.Repositories.Interfaces
 {
-    public class IBedroomRepository
+    public interface IBedroomRepository
     {
         
     }

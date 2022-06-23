@@ -1,6 +1,8 @@
+using ProjectChainHotels.Lib.Models;
+
 namespace ProjectChainHotels.Lib.Data.Repositories.Interfaces
 {
-    public class IHotelRepository
+    public interface IHotelRepository 
     {
         
     }

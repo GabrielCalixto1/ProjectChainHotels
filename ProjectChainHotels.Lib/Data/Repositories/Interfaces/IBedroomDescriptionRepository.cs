@@ -1,7 +1,9 @@
+using ProjectChainHotels.Lib.Models;
+
 namespace ProjectChainHotels.Lib.Data.Repositories.Interfaces
 {
-    public class IBedroomDescriptionRepository
+    public interface IBedroomDescriptionRepository
     {
-        
+
     }
 }
