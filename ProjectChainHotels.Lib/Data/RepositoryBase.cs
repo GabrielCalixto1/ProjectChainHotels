@@ -1,4 +1,4 @@
-using ProjectChainHotels.Lib.Data.Repositories.Interfaces;
+/*using ProjectChainHotels.Lib.Data.Repositories.Interfaces;
 using ProjectChainHotels.Lib.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,4 +38,4 @@ namespace ProjectChainHotels.Lib.Data
 
         }
     }
-}
+}*/

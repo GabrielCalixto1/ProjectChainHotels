@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ProjectChainHotels.csproj",
+                "${workspaceFolder}/ProjectChainHotels.Web/ProjectChainHotels.Web.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/ProjectChainHotels.csproj",
+                "${workspaceFolder}/ProjectChainHotels.Web/ProjectChainHotels.Web.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/ProjectChainHotels.csproj"
+                "${workspaceFolder}/ProjectChainHotels.Web/ProjectChainHotels.Web.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
