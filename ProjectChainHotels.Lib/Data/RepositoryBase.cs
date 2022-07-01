@@ -1,15 +1,16 @@
-/*using ProjectChainHotels.Lib.Data.Repositories.Interfaces;
+using ProjectChainHotels.Lib.Data.Repositories.Interfaces;
 using ProjectChainHotels.Lib.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ProjectChainHotels.Lib.Data
 {
-    public class RepositoryBase<T> where T : IRepositoryBase<T> where T : ModelBase
-   
+    public class RepositoryBase<T> where T : ModelBase
+    {
+
         private readonly ChainHotelsContext _context;
         private readonly DbSet<T> _dbset;
 
-        public RepositoritoryBase(DbSet<T> dbset, ProjectChainHotels context)
+        public RepositoritoryBase(DbSet<T> dbset, ChainHotelsContext context)
         {
             _context = context;
             _dbset = dbset;
@@ -20,7 +21,7 @@ namespace ProjectChainHotels.Lib.Data
             return (_dbset.AsNoTracking().ToList());
         }
 
-        public T ShowByID(int id)
+        public T ShowByID(string id)
         {
             return (_dbset.AsNoTracking().First(x => x.Id == id));
         }
@@ -38,4 +39,4 @@ namespace ProjectChainHotels.Lib.Data
 
         }
     }
-}*/
+}

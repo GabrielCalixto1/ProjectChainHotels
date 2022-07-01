@@ -34,8 +34,8 @@ namespace ProjectChainHotels.Lib.Data
             modelBuilder.Entity<Service>().ToTable("hc_service");
             modelBuilder.Entity<Service>().HasKey(key => key.GetId());
 
-            /*modelBuilder.Entity<ServiceXHotel>().ToTable("hc_service_x_hotel");
-            modelBuilder.Entity<ServiceXHotel>().HasKey(key => key.Get);*/
+            modelBuilder.Entity<ServiceXHotel>().ToTable("hc_service_x_hotel");
+            modelBuilder.Entity<ServiceXHotel>().HasKey(key => key.GetId);
 
         }
         public DbSet<Bedroom> BedroomsDb { get; set; }

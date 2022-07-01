@@ -17,7 +17,7 @@ builder.Services.AddScoped<IBedroomRepository, BedroomRepository>();
 builder.Services.AddScoped<IBedroomDescriptionRepository, BedroomDescriptionRepository>();
 builder.Services.AddScoped<IReserveRepository, ReserveRepository>();
 builder.Services.AddScoped<IReserveXHotelGuestRepository, ReserveXHotelGuestRepository>();
-/*builder.Services.AddScoped<IServiceXHotelRepository, ServiceRepository>();*/
+builder.Services.AddScoped<IServiceXHotelRepository, ServiceRepository>();
 builder.Services.AddScoped<IServiceXHotelRepository, ServiceXHotelRepository>();
 
 builder.Services.AddControllers()
