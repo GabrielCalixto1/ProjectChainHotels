@@ -11,11 +11,7 @@ namespace ProjectChainHotels.Lib.Models
             SetIdReserve(idReserve);
             SetIdHotel(idHotel);
         }
-        public ServiceXHotel()
-        {
-            
-        }
-
+     
         public void SetIdReserve(string idReserve)
         {
             IdReserve = idReserve;
